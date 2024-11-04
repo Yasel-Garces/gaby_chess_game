@@ -1,6 +1,9 @@
 import pygame as p
 import sys
 import pyttsx3
+from flask import Flask
+
+app = Flask(__name__)
 
 p.init()
 p.mixer.init()
