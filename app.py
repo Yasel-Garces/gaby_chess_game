@@ -190,8 +190,8 @@ class GameState:
 
             # Generate move narration and provide audio narration
             move_narration = move.get_move_narration()
-            print(f"Move: {move_narration}")
-            display_message(self.screen, f"Move: {move_narration}")
+            # print(f"Move: {move_narration}")
+            # display_message(self.screen, f"Move: {move_narration}")
 
             # Speak the move using TTS
             tts_engine.say(move_narration)
@@ -270,7 +270,7 @@ class Move:
         piece = self.piece_moved[1]
         if piece == 'P':  # Pawn moves don't have the piece letter
             piece = ''
-        return f"{piece}{self.cols_to_files[self.end_col].upper()}{self.rows_to_ranks[self.end_row]}"
+        return 1 #f"{piece}{self.cols_to_files[self.end_col].upper()}{self.rows_to_ranks[self.end_row]}"
 
     def get_move_narration(self):
         """ Returns the move as narration, e.g. 'White Queen to D3' """
@@ -283,7 +283,7 @@ class Move:
             'N': 'Knight',
             'P': 'Pawn'
         }.get(self.piece_moved[1], '')
-        return f"{color} {piece_name} to {self.cols_to_files[self.end_col].upper()}{self.rows_to_ranks[self.end_row]}"
+        return 1 #f"{color} {piece_name} to {self.cols_to_files[self.end_col].upper()}{self.rows_to_ranks[self.end_row]}"
 
 # Get valid moves for a piece at (row, col)
 def get_valid_moves(gs, row, col):
