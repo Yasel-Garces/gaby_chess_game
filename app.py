@@ -7,11 +7,7 @@ import os
 app = Flask(__name__)
 
 p.init()
-# Conditionally initialize mixer if not on Heroku
-if os.getenv('HEROKU'):
-    print("Running on Heroku, skipping audio initialization.")
-else:
-    p.mixer.init()
+# p.mixer.init()
 
 # Initialize the text-to-speech engine
 tts_engine = pyttsx3.init()
