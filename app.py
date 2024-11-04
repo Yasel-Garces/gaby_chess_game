@@ -2,11 +2,16 @@ import pygame as p
 import sys
 import pyttsx3
 from flask import Flask
+import os
 
 app = Flask(__name__)
 
 p.init()
-p.mixer.init()
+# Conditionally initialize mixer if not on Heroku
+if os.getenv('HEROKU'):
+    print("Running on Heroku, skipping audio initialization.")
+else:
+    p.mixer.init()
 
 # Initialize the text-to-speech engine
 tts_engine = pyttsx3.init()
